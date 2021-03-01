@@ -62,9 +62,9 @@
                                 <span class="bot-line"></span>Quản Lý Category</a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="/indexBlog">
                                 <i class="fas fa-trophy"></i>
-                                <span class="bot-line"></span>Quản Lý User</a>
+                                <span class="bot-line"></span>Blog Page</a>
                         </li>
                     </ul>
                 </div>
@@ -75,7 +75,7 @@
                                 <img src="admin-assets/images/icon/avatar-01.jpg" alt="John Doe"/>
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">john doe</a>
+                                <a class="js-acc-btn" href="#">${fullName}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
@@ -86,23 +86,9 @@
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">john doe</a>
+                                            <a href="#">${fullName}</a>
                                         </h5>
-                                        <span class="email">johndoe@example.com</span>
-                                    </div>
-                                </div>
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                        <span class="email">${userName}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
@@ -224,37 +210,23 @@
             <div class="account-wrap">
                 <div class="account-item account-item--style2 clearfix js-item-menu">
                     <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe"/>
+                        <img src="admin-assets/images/icon/avatar-01.jpg" alt="John Doe"/>
                     </div>
                     <div class="content">
-                        <a class="js-acc-btn" href="#">john doe</a>
+                        <a class="js-acc-btn" href="#">${fullName}</a>
                     </div>
                     <div class="account-dropdown js-dropdown">
                         <div class="info clearfix">
                             <div class="image">
                                 <a href="#">
-                                    <img src="images/icon/avatar-01.jpg" alt="John Doe"/>
+                                    <img src="admin-assets/images/icon/avatar-01.jpg" alt="John Doe"/>
                                 </a>
                             </div>
                             <div class="content">
                                 <h5 class="name">
-                                    <a href="#">john doe</a>
+                                    <a href="#">${fullName}</a>
                                 </h5>
-                                <span class="email">johndoe@example.com</span>
-                            </div>
-                        </div>
-                        <div class="account-dropdown__body">
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-account"></i>Account</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-settings"></i>Setting</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                <span class="email">${userName}</span>
                             </div>
                         </div>
                         <div class="account-dropdown__footer">

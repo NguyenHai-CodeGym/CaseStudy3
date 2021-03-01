@@ -21,18 +21,20 @@ public class AdminDeleteCategoryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int id = Integer.parseInt(request.getParameter("id"));
+    try {
+        int id = Integer.parseInt(request.getParameter("id"));
         List<Category> categoryList = null;
 
-        try {
-            categoryService.delete(id);
-            categoryList = categoryService.showAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        categoryService.delete(id);
+        categoryList = categoryService.showAll();
+
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin-assets/list-Category.jsp");
         request.setAttribute("category",categoryList);
         dispatcher.forward(request,response);
+    }catch (Exception e){
+        response.sendRedirect("/error404");
+    }
     }
 }

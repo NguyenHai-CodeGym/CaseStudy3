@@ -62,9 +62,9 @@
                                 <span class="bot-line"></span>Quản Lý Category</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/indexBlog">
                                 <i class="fas fa-trophy"></i>
-                                <span class="bot-line"></span>Quản Lý User</a>
+                                <span class="bot-line"></span>Blog Page</a>
                         </li>
                     </ul>
                 </div>
@@ -75,7 +75,7 @@
                                 <img src="admin-assets/images/icon/avatar-01.jpg" alt="John Doe"/>
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">john doe</a>
+                                <a class="js-acc-btn" href="#">${fullName}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
@@ -88,21 +88,7 @@
                                         <h5 class="name">
                                             <a href="#">john doe</a>
                                         </h5>
-                                        <span class="email">johndoe@example.com</span>
-                                    </div>
-                                </div>
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                        <span class="email">${userName}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
@@ -423,21 +409,21 @@
                         <form action="/addPost", method="post">
                             <div class="form-group">
                                 <label for="usr">Title:</label>
-                                <input type="text" class="form-control" id="usr" name="title">
+                                <input type="text" class="form-control" id="usr" name="title" required>
                             </div>
                             <div class="form-group">
                                 <label for="full">Full Content:</label>
-                                <textarea class="form-control" rows="5" id="full" name="fullContent"></textarea>
+                                <textarea class="form-control" rows="5" id="full" name="fullContent" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="short">Short Content:</label>
-                                <textarea class="form-control" rows="5" id="short" name="shortContent"></textarea>
+                                <textarea class="form-control" rows="5" id="short" name="shortContent" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="img">Image Link:</label>
-                                <input type="text" class="form-control" id="img" name="image">
+                                <input type="text" class="form-control" id="img" name="image" required>
                             </div>
-                            <select name="category" id="categoryId" class="form-control">
+                            <select name="category" id="categoryId" class="form-control" required>
                                 <option>-----Vui Lòng Chọn Thể Loại------</option>
                                 <c:forEach var="categorylist" items='${categorylist}'>
                                     <option value='${categorylist.id}'>${categorylist.nameCategory}</option>

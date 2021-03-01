@@ -39,9 +39,9 @@
                 </div>
                 <div class="col-3 search-top">
                     <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                    <form action="#" class="search-top-form">
-                        <span class="icon fa fa-search"></span>
-                        <input type="text" id="s" placeholder="Type keyword to search...">
+                    <form action="/searchBlog" class="search-top-form", method="post">
+                        <button type="submit" class="icon fa fa-search"></button>
+                        <input type="text" id="s" placeholder="Type keyword to search..."  name="search">
                     </form>
                 </div>
             </div>
@@ -74,10 +74,10 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
 
@@ -216,18 +216,12 @@
                                 <input type="email" class="form-control" id="email">
                             </div>
                             <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
-                            </div>
-
-                            <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="mess" id="message" cols="30" rows="10" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Post Comment" class="btn btn-primary">
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -328,7 +322,7 @@
                             <ul>
                                 <c:forEach items="${listNewPost}" var="listNewPosts">
                                     <li>
-                                        <a href="">
+                                        <a href="/blogSingle?id=${listNewPosts.id}">
                                             <img src="${listNewPosts.image}" alt="Image placeholder" class="mr-4">
                                             <div class="text">
                                                 <h4>${listNewPosts.title}</h4>

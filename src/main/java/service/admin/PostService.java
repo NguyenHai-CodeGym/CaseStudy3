@@ -15,12 +15,12 @@ import java.util.List;
 
 public class PostService implements IBaseService<Post> {
     ConnectionService connectionService = new ConnectionService();
-    protected final String SELECT_ALL = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post inner join category on post.idCategory = category.id";
+    protected final String SELECT_ALL = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post left join category on post.idCategory = category.id";
     protected final String INSERT_POST = "INSERT INTO post (title,fullContent,shortContent,image,idCategory) VALUES (?,?,?,?,?)";
     protected final String UPDATE_POST = "UPDATE post SET title = ?, fullContent= ?, shortContent = ?, image = ?, idCategory = ? where post.id = ?";
-    protected final String FINDBYID = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post inner join category on post.idCategory = category.id where post.id = ?";
+    protected final String FINDBYID = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post left join category on post.idCategory = category.id where post.id = ?";
     protected  final String DELETE = "delete from post where post.id = ? ";
-    protected final String FINDBYCATEGORY = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post inner join category on post.idCategory = category.id where post.idCategory = ?";
+    protected final String FINDBYCATEGORY = "select post.id as id, title, fullContent, shortContent, publishDate, image, idCategory, nameCategory from post left join category on post.idCategory = category.id where post.idCategory = ?";
 
 
     @Override

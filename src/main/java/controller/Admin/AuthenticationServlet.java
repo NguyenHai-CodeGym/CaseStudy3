@@ -25,10 +25,11 @@ public class AuthenticationServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("username",user.getUsername());
                 session.setAttribute("user",user);
+                session.setAttribute("fullname", user.getFullname());
                 response.sendRedirect("dashboard");
             }else {
-                request.setAttribute("mess","Username , Password could wrong, please try again!!");
                 response.sendRedirect("/authentication");
+                request.setAttribute("mess","Username , Password could wrong, please try again!!");
                 showLogin(request,response);
             }
         }catch (Exception e){
@@ -46,12 +47,19 @@ public class AuthenticationServlet extends HttpServlet {
             showLogin(request,response);
             break;
         case "logout":
-            showLogin(request,response);
+            showLogout(request,response);
             break;
     }
     }
 
     private void showLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin-assets/login.jsp");
+        dispatcher.forward(request,response);
+    }
+
+    private void showLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        session.invalidate();
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin-assets/login.jsp");
         dispatcher.forward(request,response);
     }

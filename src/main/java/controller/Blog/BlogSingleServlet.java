@@ -26,24 +26,26 @@ public class BlogSingleServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("blog-single.jsp");
-        List<Category> categoryList = null;
-        List<Post> listNewPost = null;
-        Post postSingle = null;
+      try {
+          RequestDispatcher dispatcher = request.getRequestDispatcher("blog-single.jsp");
+          List<Category> categoryList = null;
+          List<Post> listNewPost = null;
+          Post postSingle = null;
 
-        int idblog = Integer.parseInt(request.getParameter("id"));
+          int idblog = Integer.parseInt(request.getParameter("id"));
 
-        try {
-            categoryList = categoryService.showAll();
-            listNewPost  = blogService.showAll();
-            postSingle = blogService.findByID(idblog);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        request.setAttribute("categoryList",categoryList);
-        request.setAttribute("listNewPost",listNewPost);
-        request.setAttribute("blogSingle", postSingle);
-        dispatcher.forward(request,response);
+          categoryList = categoryService.showAll();
+          listNewPost  = blogService.showAll();
+          postSingle = blogService.findByID(idblog);
+
+
+          request.setAttribute("categoryList",categoryList);
+          request.setAttribute("listNewPost",listNewPost);
+          request.setAttribute("blogSingle", postSingle);
+          dispatcher.forward(request,response);
+      }catch (Exception e){
+          response.sendRedirect("/error404Blog");
+      }
     }
 }

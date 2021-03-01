@@ -26,23 +26,25 @@ public class BlogCategoryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int cateId = Integer.parseInt(request.getParameter("id"));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category-blog.jsp");
-        List<Category> categoryList = null;
-        List<Post> postList = null;
-        List<Post> postListByCategory = null;
-        try {
+       try {
+           int cateId = Integer.parseInt(request.getParameter("id"));
+           RequestDispatcher dispatcher = request.getRequestDispatcher("category-blog.jsp");
+           List<Category> categoryList = null;
+           List<Post> postList = null;
+           List<Post> postListByCategory = null;
 
-            categoryList = categoryService.showAll();
-            postList = blogService.showAll();
-            postListByCategory = postService.showByCategory(cateId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        request.setAttribute("categoryList",categoryList);
-        request.setAttribute("list",postList);
-        request.setAttribute("listByCate",postListByCategory);
-        dispatcher.forward(request,response);
+           categoryList = categoryService.showAll();
+           postList = blogService.showAll();
+           postListByCategory = postService.showByCategory(cateId);
+
+
+           request.setAttribute("categoryList",categoryList);
+           request.setAttribute("list",postList);
+           request.setAttribute("listByCate",postListByCategory);
+           dispatcher.forward(request,response);
+       }catch (Exception e){
+           response.sendRedirect("/error404Blog");
+       }
     }
 }

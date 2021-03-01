@@ -39,9 +39,9 @@
                 </div>
                 <div class="col-3 search-top">
                     <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                    <form action="#" class="search-top-form">
-                        <span class="icon fa fa-search"></span>
-                        <input type="text" id="s" placeholder="Type keyword to search...">
+                    <form action="/searchBlog" class="search-top-form", method="post">
+                        <button type="submit" class="icon fa fa-search"></button>
+                        <input type="text" id="s" placeholder="Type keyword to search..."  name="search">
                     </form>
                 </div>
             </div>
@@ -74,10 +74,10 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
 

@@ -21,17 +21,18 @@ public class AdminDeletePostServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int id = Integer.parseInt(request.getParameter("id"));
+    try {
+        int id = Integer.parseInt(request.getParameter("id"));
         List<Post> postList = null;
 
-        try {
-            postService.delete(id);
-            postList = postService.showAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        postService.delete(id);
+        postList = postService.showAll();
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin-assets/dashboard.jsp");
         request.setAttribute("list",postList);
         dispatcher.forward(request,response);
+    }catch (Exception e){
+        response.sendRedirect("/error404");
+    }
     }
 }
